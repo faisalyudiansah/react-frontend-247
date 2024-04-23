@@ -56,7 +56,7 @@ export const Rectangle = () => {
 
   const goToLastPage = () => {
     const totalPages = Math.ceil(squares.length / squaresPerPage);
-    setPageNumber(totalPages);
+    setPageNumber(totalPages)
   };
 
   return (
