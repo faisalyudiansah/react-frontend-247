@@ -1,4 +1,5 @@
 import React from 'react'
+import heroImage from '../../assets/hero.png'
 
 export const Hero = ({ setTab, tab }) => {
 
@@ -7,26 +8,30 @@ export const Hero = ({ setTab, tab }) => {
   }
 
   return (
-    <div className="hero h-[500px]" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
-      <div className="hero-overlay bg-opacity-60"></div>
-      <div className="hero-content text-center text-neutral-content w-96">
-        <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold">Muhammad Faisal Yudiansah</h1>
-          <p className="mb-5">Frontend Test 247</p>
-          <button
-            onClick={() => onChangeTab(1)}
-            className="btn btn-primary mr-1 w-28 rounded-s-full"
-          >
-            Tab 1
-          </button>
-          <button
-            onClick={() => onChangeTab(2)}
-            className="btn btn-primary ml-1 w-28 rounded-e-full"
-          >
-            Tab 2
-          </button>
+    <>
+      <section className="hero min-h-[500px] bg-base-200">
+        <div className="hero-content flex-col md:flex-row">
+          <img src={heroImage} className="w-sm md:w-1/2 rounded-lg" />
+          <div className='md:mt-0 mt-5 text-black lg:ml-20 ml-0'>
+            <h1 className="text-5xl font-bold">Muhammad Faisal Yudiansah</h1>
+            <p className="py-6 text-justify">Frontend test - 247</p>
+            <div className='flex md:justify-start justify-center items-center'>
+              <button
+                onClick={() => onChangeTab(1)}
+                className={`btn hover:bg-yellow-400 text-white mr-1 w-28 rounded-s-full ${tab === 1 ? `bg-yellow-600` : `bg-yellow-500`}`}
+              >
+                Tab 1
+              </button>
+              <button
+                onClick={() => onChangeTab(2)}
+                className={`btn hover:bg-yellow-400 text-white mr-1 w-28 rounded-e-full ${tab === 2 ? `bg-yellow-600` : `bg-yellow-500`}`}
+              >
+                Tab 2
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   )
 }

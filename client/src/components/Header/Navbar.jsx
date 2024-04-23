@@ -1,6 +1,11 @@
 import React from 'react'
 
-export const Navbar = () => {
+export const Navbar = ({ setTab }) => {
+
+  const onChangeTab = (valueTab) => {
+    setTab(valueTab)
+  }
+
   return (
     <div className="navbar bg-base-200 p-5">
       <div className="flex">
@@ -8,7 +13,7 @@ export const Navbar = () => {
       </div>
       <div className="flex-none ml-10">
         <ul className="menu menu-horizontal px-1">
-          <li><a>Home</a></li>
+          <li><a onClick={() => onChangeTab(0)}>Home</a></li>
         </ul>
       </div>
     </div>

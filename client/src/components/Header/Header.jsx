@@ -5,7 +5,7 @@ import { Hero } from './Hero'
 export const Header = ({ setTab, tab }) => {
   return (
     <>
-      <Navbar />
+      <Navbar setTab={setTab} />
       <Hero setTab={setTab} tab={tab} />
     </>
   )
