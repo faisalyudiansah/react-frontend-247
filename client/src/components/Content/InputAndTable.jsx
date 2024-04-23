@@ -26,9 +26,22 @@ export const InputAndTable = () => {
       return;
     }
     const trimmedWord = newWord.trim()
-    const lastId = valueTable[valueTable.length - 1].id;
-    const newId = lastId + 1;
-
+    const isDuplicate = valueTable.some(
+      (item) => item.kata.toLowerCase() === trimmedWord
+    );
+    if (isDuplicate) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Text kamu sudah ada dalam tabel",
+      });
+      return;
+    }
+    let newId = 1
+    if(valueTable.length > 0 ){
+      const lastId = valueTable[valueTable.length - 1].id;
+      newId = lastId + 1;
+    }
     const newInput = {
       id: newId,
       kata: trimmedWord,
@@ -47,21 +60,25 @@ export const InputAndTable = () => {
       if (result.isConfirmed) {
         const updatedTable = valueTable.filter((item) => item.id !== id);
         setValueTable(updatedTable);
-        Swal.fire("Saved!", "", "success");
+        Swal.fire("Success!", "", "success");
       }
     });
   };
 
   return (
     <>
-      <div className='flex flex-1 items-center'>
-        <input
+      <div className='flex flex-col'>
+        <textarea
           value={newWord}
           onChange={(e) => setNewWord(e.target.value)}
-          className="mb-2 h-14 flex-1 rounded-l-xl text-black px-4 focus:outline-none"
-          placeholder="Input your text"
+          className="rounded-t-xl p-4 text-black focus:outline-none"
+          placeholder="Input your text..."
+          rows={3}
         />
-        <button onClick={newInput} className="mb-2 block h-14 flex-1 rounded-r-xl text-white bg-yellow-500 px-4">
+        <button
+          onClick={newInput}
+          className="rounded-b-xl p-2 text-white bg-yellow-500"
+        >
           Add
         </button>
       </div>
@@ -77,21 +94,29 @@ export const InputAndTable = () => {
               </tr>
             </thead>
             <tbody className='text-black'>
-              {valueTable.map((el) => (
-                <tr key={el.id}>
-                  <th>{el.id}</th>
-                  <td>{el.kata}</td>
-                  <td className='text-center'>{el.jumlahKata}</td>
-                  <td>
-                    <button
-                      onClick={() => handleDelete(el.id, el.kata)}
-                      className='btn bg-red-500 text-white'
-                    >
-                      Delete
-                    </button>
-                  </td>
+              {valueTable.length === 0 ? (
+                <tr>
+                  <td colSpan="4" className="text-center">Data Kosong</td>
                 </tr>
-              ))}
+              ) : (
+                <>
+                  {valueTable.map((el) => (
+                    <tr key={el.id}>
+                      <th>{el.id}</th>
+                      <td>{el.kata}</td>
+                      <td className='text-center'>{el.jumlahKata}</td>
+                      <td>
+                        <button
+                          onClick={() => handleDelete(el.id, el.kata)}
+                          className='btn bg-red-500 text-white'
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </>
+              )}
             </tbody>
           </table>
         </div>

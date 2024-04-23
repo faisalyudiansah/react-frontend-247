@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { ContentDefault } from './ContentDefault'
 import imageZero from '../../assets/analysis.png';
 import imageOneAndTwo from '../../assets/letsTalk.png';
+import { ContentDefault } from './ContentDefault'
 import { InputAndTable } from './InputAndTable';
+import { Rectangle } from './Rectangle';
 
 export const Content = ({ tab }) => {
   const [tempImage, setTempImage] = useState(imageZero)
@@ -36,7 +37,7 @@ export const Content = ({ tab }) => {
             <InputAndTable />
           )}
           {tab === 2 && (
-            <div>Content 2</div>
+            <Rectangle />
           )}
         </div>
       </div>
