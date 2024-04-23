@@ -1,18 +1,12 @@
 import React from 'react'
+import { Navbar } from './Navbar'
+import { Hero } from './Hero'
 
-export const Header = () => {
+export const Header = ({ setTab, tab }) => {
   return (
     <>
-      <div className="navbar bg-base-200 p-5">
-        <div className="flex">
-          <a className="btn btn-ghost text-xl text-bold">Frontend 247</a>
-        </div>
-        <div className="flex-none ml-10">
-          <ul className="menu menu-horizontal px-1">
-            <li><a>Home</a></li>
-          </ul>
-        </div>
-      </div>
+      <Navbar />
+      <Hero setTab={setTab} tab={tab} />
     </>
   )
 }

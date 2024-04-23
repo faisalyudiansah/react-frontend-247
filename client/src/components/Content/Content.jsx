@@ -1,7 +1,17 @@
 import React from 'react'
 
-export const Content = () => {
+export const Content = ({ setTab, tab }) => {
   return (
-    <div>Content</div>
+    <>
+      {tab === 0 && (
+        <div>Content 0</div>
+      )}
+      {tab === 1 && (
+        <div>Content 1</div>
+      )}
+      {tab === 2 && (
+        <div>Content 2</div>
+      )}
+    </>
   )
 }
