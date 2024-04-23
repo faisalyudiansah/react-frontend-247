@@ -1,14 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ContentDefault } from './ContentDefault'
-import heroImage from '../../assets/analysis.png';
+import imageZero from '../../assets/analysis.png';
+import imageOneAndTwo from '../../assets/letsTalk.png';
 import { InputAndTable } from './InputAndTable';
 
 export const Content = ({ tab }) => {
+  const [tempImage, setTempImage] = useState(imageZero)
   const heroStyle = {
-    backgroundImage: `url(${heroImage})`, // Use `url()` to specify the image path
-    backgroundSize: 'cover', // Adjust as needed for your layout
-    backgroundPosition: 'center', // Center the image
-  };
+    backgroundImage: `url(${tempImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }
+
+  function changeImage() {
+    if (tab === 0) {
+      return setTempImage(imageZero)
+    } else {
+      return setTempImage(imageOneAndTwo)
+    }
+  }
+
+  useEffect(() => {
+    changeImage()
+  }, [tab])
+
   return (
     <>
       <div className="hero min-h-screen" style={heroStyle}>
