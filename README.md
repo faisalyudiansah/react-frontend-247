@@ -7,5 +7,3 @@
 Jelaskan bagaimana cara kamu menempatkan div A berada di tengah-tengah div B sehingga posisinya
 tepat di tengah secara vertikal. Apa saja yang perlu diperhatikan ?
 5. Sebutkan sebuah framework UI yang kamu sangat sukai, jelaskan mengapa kamu menyukainya.
-
-Jawaban :
