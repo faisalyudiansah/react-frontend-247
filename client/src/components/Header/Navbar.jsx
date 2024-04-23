@@ -7,9 +7,9 @@ export const Navbar = ({ setTab }) => {
   }
 
   return (
-    <div className="navbar bg-base-200 p-5">
+    <div id='navbar' className="navbar bg-base-200 p-5">
       <div className="flex">
-        <a className="btn btn-ghost text-xl text-bold">Frontend 247</a>
+        <a className="btn btn-ghost text-xl text-bold" onClick={() => onChangeTab(0)}>Frontend 247</a>
       </div>
       <div className="flex-none ml-10">
         <ul className="menu menu-horizontal px-1">

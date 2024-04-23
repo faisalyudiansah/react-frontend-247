@@ -1,10 +1,11 @@
 import React from 'react'
+import { ContentDefault } from './ContentDefault'
 
-export const Content = ({ setTab, tab }) => {
+export const Content = ({ tab }) => {
   return (
     <>
       {tab === 0 && (
-        <div>Content 0</div>
+        <ContentDefault />
       )}
       {tab === 1 && (
         <div>Content 1</div>

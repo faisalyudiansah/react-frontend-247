@@ -9,8 +9,8 @@ export const Hero = ({ setTab, tab }) => {
 
   return (
     <>
-      <section className="hero min-h-[500px] bg-base-200">
-        <div className="hero-content flex-col md:flex-row">
+      <section id='hero' className="hero min-h-[400px] bg-base-200">
+        <div className="hero-content flex-col md:flex-row mb-14">
           <img src={heroImage} className="w-sm md:w-1/2 rounded-lg" />
           <div className='md:mt-0 mt-5 text-black lg:ml-20 ml-0'>
             <h1 className="text-5xl font-bold">Muhammad Faisal Yudiansah</h1>

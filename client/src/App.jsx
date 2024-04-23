@@ -9,7 +9,7 @@ const App = () => {
   return (
     <>
       <Header setTab={setTab} tab={tab} />
-      <Content setTab={setTab} tab={tab} />
+      <Content tab={tab} />
       <Footer />
     </>
   )
